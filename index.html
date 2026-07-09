@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ilyas — Front-End Developer & UI/UX Enthusiast. Portofolio profesional menampilkan proyek web development, desain kreatif, dan layanan digital." />
+  <meta name="author" content="Ilyas" />
+  <meta name="keywords" content="portofolio, web developer, front-end, UI/UX, Bootstrap, JavaScript, HTML, CSS" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Ilyas — Front-End Developer" />
+  <meta property="og:description" content="Portofolio profesional Ilyas — Front-End Developer & UI/UX Enthusiast." />
+  <meta property="og:url"         content="https://ilyas.dev" />
+
+  <title>Ilyas — Front-End Developer</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════ -->
+  <nav class="portfolio-navbar navbar navbar-expand-lg fixed-top" id="mainNavbar">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#hero" id="navBrand">
+        ilyas<span class="accent">.</span>dev
+      </a>
+
+      <!-- Mobile Toggle + Theme (right side for mobile) -->
+      <div class="d-flex d-lg-none align-items-center gap-2">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle tema">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigasi"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="#hero" id="navHome">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" id="navAbout">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects" id="navProjects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" id="navContact">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Theme Toggle (Desktop) -->
+        <div class="d-none d-lg-block">
+          <button id="themeToggleDesktop" class="theme-toggle" aria-label="Toggle tema">
+            <i class="bi bi-moon-fill"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════ -->
+  <main class="container" style="padding-top: 90px; padding-bottom: 2rem;" id="hero">
+
+    <!-- ─── ROW 1: Hero + Status + Location ─── -->
+    <div class="bento-grid">
+
+      <!-- HERO CARD (2 col) -->
+      <div class="bento-card bento-card-dark hero-card bento-col-2 noise-texture reveal" id="heroCard">
+        <!-- Decorative orb -->
+        <div class="floating-orb" style="width:200px;height:200px;background:#6C63FF;top:-60px;right:-40px;opacity:0.15;"></div>
+        <div class="floating-orb" style="width:120px;height:120px;background:#FF6584;bottom:-30px;left:20px;opacity:0.1;"></div>
+
+        <div style="position:relative;z-index:1;">
+          <!-- Avatar + Available -->
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img
+              src="https://api.dicebear.com/9.x/adventurer/svg?seed=Ilyas&backgroundColor=6C63FF"
+              alt="Avatar Ilyas"
+              class="hero-avatar"
+              loading="lazy"
+            />
+            <div>
+              <span class="badge-available">
+                <span class="ping-dot"></span>
+                Available for Work
+              </span>
+            </div>
+          </div>
+
+          <!-- Name & Tagline -->
+          <h1 class="hero-name">Hi, I'm Ilyas 👋</h1>
+          <p class="hero-tagline">
+            <span id="typingText"></span><span class="typing-cursor"></span>
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="d-flex flex-wrap gap-2">
+            <button
+              class="btn-hero-secondary btn-magnetic"
+              onclick="window.open('#projects','_self')"
+              id="btnViewProjects"
+            >
+              <i class="bi bi-grid-3x3-gap-fill me-1"></i>
+              Lihat Proyek
+            </button>
+            <button
+              class="btn-hero-primary btn-magnetic"
+              onclick="alert('CV akan segera tersedia!')"
+              id="btnDownloadCV"
+            >
+              <i class="bi bi-download me-1"></i>
+              Download CV
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATUS CARD -->
+      <div class="bento-card reveal reveal-delay-1" id="statusCard">
+        <div class="card-label">Status</div>
+        <span class="status-icon">💼</span>
+        <div class="card-value">Open to Work</div>
+        <div class="card-sub mt-2">
+          <span class="badge rounded-pill px-2 py-1" style="background:rgba(67,217,173,0.12);color:var(--accent-3);font-size:0.72rem;font-weight:600;border:1px solid rgba(67,217,173,0.25);">
+            <i class="bi bi-circle-fill me-1" style="font-size:0.5rem;"></i>
+            Fulltime / Freelance
+          </span>
+        </div>
+      </div>
+
+      <!-- LOCATION / TIME CARD -->
+      <div class="bento-card reveal reveal-delay-2" id="locationCard">
+        <div class="card-label">Lokasi & Waktu</div>
+        <div class="d-flex align-items-center gap-2 mb-2 mt-1">
+          <i class="bi bi-geo-alt-fill text-accent-2"></i>
+          <span class="card-value" style="font-size:1rem;">Indonesia 🇮🇩</span>
+        </div>
+        <div class="local-time" id="localTime">00:00:00</div>
+        <div class="card-sub">WIB — UTC+7</div>
+      </div>
+
+      <!-- ─── ROW 2: Tech Stack (tall) + About + GitHub ─── -->
+
+      <!-- TECH STACK CARD (1 col × 2 rows) -->
+      <div class="bento-card bento-row-2 reveal reveal-delay-1" id="techStackCard">
+        <div class="section-title">
+          <span class="dot"></span> Tech Stack
+        </div>
+        <div class="tech-grid">
+          <div class="tech-item" title="HTML5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" loading="lazy" />
+            <span>HTML5</span>
+          </div>
+          <div class="tech-item" title="CSS3">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" loading="lazy" />
+            <span>CSS3</span>
+          </div>
+          <div class="tech-item" title="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy" />
+            <span>JS</span>
+          </div>
+          <div class="tech-item" title="Bootstrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" loading="lazy" />
+            <span>Bootstrap</span>
+          </div>
+          <div class="tech-item" title="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" loading="lazy" />
+            <span>React</span>
+          </div>
+          <div class="tech-item" title="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" loading="lazy" />
+            <span>Node.js</span>
+          </div>
+          <div class="tech-item" title="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy" />
+            <span>Python</span>
+          </div>
+          <div class="tech-item" title="Git">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy" />
+            <span>Git</span>
+          </div>
+          <div class="tech-item" title="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" loading="lazy" />
+            <span>Figma</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT CARD (2 col) -->
+      <div class="bento-card bento-col-2 reveal reveal-delay-2" id="about">
+        <div class="section-title">
+          <span class="dot"></span> Tentang Saya
+        </div>
+        <p class="about-text">
+          Saya adalah <strong>Front-End Developer</strong> yang bersemangat dalam membangun antarmuka web yang
+          indah, cepat, dan aksesibel. Saya menyukai tantangan desain yang berpadu dengan kode yang bersih.
+          Ketika tidak sedang coding, saya senang mengeksplorasi tren UI/UX terbaru dan berkontribusi
+          pada proyek open source.
+        </p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-number" data-count="3" id="statYears">3</span>
+            <span class="stat-label">Tahun<br/>Pengalaman</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="24" id="statProjects">24</span>
+            <span class="stat-label">Proyek<br/>Selesai</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="18" id="statClients">18</span>
+            <span class="stat-label">Klien<br/>Puas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="100" id="statSatisfaction">100</span>
+            <span class="stat-label">% Tingkat<br/>Kepuasan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GITHUB STATS CARD -->
+      <div class="bento-card reveal reveal-delay-3" id="githubCard">
+        <div class="section-title">
+          <span class="dot"></span>
+          <i class="bi bi-github me-1"></i> GitHub
+        </div>
+        <div class="github-stat-item">
+          <span class="github-stat-label"><i class="bi bi-collection"></i> Repositories</span>
+          <span class="github-stat-value">42</span>
+        </div>
+        <div class="github-stat-item">
+          <span class="github-stat-label"><i class="bi bi-fire"></i> Streak</span>
+          <span class="github-stat-value text-accent-2">14 hari</span>
+        </div>
+        <div class="github-stat-item">
+          <span class="github-stat-label"><i class="bi bi-star"></i> Stars</span>
+          <span class="github-stat-value">128</span>
+        </div>
+        <div class="contribution-bar mt-3" id="contribGrid"></div>
+      </div>
+
+      <!-- ─── ROW 3: Services ─── -->
+
+      <!-- SERVICES CARD (2 col) -->
+      <div class="bento-card bento-col-2 reveal" id="servicesCard">
+        <div class="section-title">
+          <span class="dot"></span> Layanan
+        </div>
+        <div class="service-list">
+          <div class="service-item">
+            <div class="service-icon">🌐</div>
+            <div>
+              <div class="service-name">Web Development</div>
+              <div class="service-desc">Website modern, responsif, dan berperforma tinggi</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🎨</div>
+            <div>
+              <div class="service-name">UI/UX Design</div>
+              <div class="service-desc">Desain antarmuka intuitif dan estetis menggunakan Figma</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">📱</div>
+            <div>
+              <div class="service-name">Responsive Design</div>
+              <div class="service-desc">Optimal di semua perangkat — mobile, tablet, desktop</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">⚡</div>
+            <div>
+              <div class="service-name">Performance Optimization</div>
+              <div class="service-desc">Skor Lighthouse tinggi, load time cepat, SEO optimal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUOTE / MOOD CARD -->
+      <div class="bento-card bento-card-mint reveal reveal-delay-1" id="quoteCard">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">💡</div>
+        <div style="font-family:var(--font-heading);font-size:1rem;font-weight:700;color:#0A2E24;line-height:1.4;margin-bottom:0.5rem;">
+          "Clean code always looks like it was written by someone who cares."
+        </div>
+        <div style="font-size:0.75rem;font-weight:600;color:rgba(10,46,36,0.7);">— Robert C. Martin</div>
+      </div>
+
+      <!-- COFFEE COUNT CARD -->
+      <div class="bento-card bento-card-warm reveal reveal-delay-2" id="coffeeCard">
+        <div style="font-size:2.5rem;margin-bottom:0.25rem;">☕</div>
+        <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:#2D1800;">∞</div>
+        <div style="font-size:0.8rem;font-weight:600;color:rgba(45,24,0,0.7);">Cups of coffee<br/>this month</div>
+      </div>
+
+    </div><!-- /bento-grid row 1-3 -->
+
+    <!-- ─── PROJECTS SECTION ─── -->
+    <div class="section-divider" id="projects">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-label">✦ Proyek Pilihan</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="bento-grid">
+
+      <!-- PROJECTS BIG CARD (4 col) -->
+      <div class="bento-card bento-col-4 reveal" style="padding:2rem;">
+        <div class="section-title" style="margin-bottom:1.25rem;">
+          <span class="dot"></span> Featured Projects
+          <span class="ms-auto" style="font-size:0.775rem;font-weight:500;color:var(--text-muted);">
+            <a href="#" style="color:var(--accent-1);" id="linkAllProjects">Lihat semua <i class="bi bi-arrow-right"></i></a>
+          </span>
+        </div>
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <div class="project-card" id="project1">
+            <div class="project-thumb-placeholder" style="background:linear-gradient(135deg,#6C63FF22,#6C63FF55);">
+              🛒
+            </div>
+            <div class="project-info">
+              <div class="project-title">E-Commerce Dashboard</div>
+              <div class="project-desc">Platform manajemen toko online dengan analitik real-time, manajemen produk, dan laporan penjualan.</div>
+              <div class="tag-list">
+                <span class="tag">Bootstrap 5</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Chart.js</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="proj1Github">
+                  <i class="bi bi-github"></i> Code
+                </a>
+                <a href="#" class="project-link" id="proj1Live">
+                  <i class="bi bi-box-arrow-up-right"></i> Live
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card" id="project2">
+            <div class="project-thumb-placeholder" style="background:linear-gradient(135deg,#43D9AD22,#43D9AD55);">
+              🌿
+            </div>
+            <div class="project-info">
+              <div class="project-title">Plant Care App</div>
+              <div class="project-desc">Aplikasi web untuk melacak jadwal penyiraman tanaman, pengingat pupuk, dan panduan perawatan.</div>
+              <div class="tag-list">
+                <span class="tag">React</span>
+                <span class="tag">CSS Variables</span>
+                <span class="tag">LocalStorage</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="proj2Github">
+                  <i class="bi bi-github"></i> Code
+                </a>
+                <a href="#" class="project-link" id="proj2Live">
+                  <i class="bi bi-box-arrow-up-right"></i> Live
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card" id="project3">
+            <div class="project-thumb-placeholder" style="background:linear-gradient(135deg,#FF658422,#FF658455);">
+              🎵
+            </div>
+            <div class="project-info">
+              <div class="project-title">Music Streaming UI</div>
+              <div class="project-desc">Antarmuka player musik modern dengan animasi vinyl, equalizer visual, dan playlist management.</div>
+              <div class="tag-list">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Web Audio API</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="proj3Github">
+                  <i class="bi bi-github"></i> Code
+                </a>
+                <a href="#" class="project-link" id="proj3Live">
+                  <i class="bi bi-box-arrow-up-right"></i> Live
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card" id="project4">
+            <div class="project-thumb-placeholder" style="background:linear-gradient(135deg,#FFB34722,#FFB34755);">
+              📊
+            </div>
+            <div class="project-info">
+              <div class="project-title">Analytics Platform</div>
+              <div class="project-desc">Dashboard analitik data dengan visualisasi interaktif, filter dinamis, dan ekspor laporan.</div>
+              <div class="tag-list">
+                <span class="tag">Bootstrap 5</span>
+                <span class="tag">D3.js</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link" id="proj4Github">
+                  <i class="bi bi-github"></i> Code
+                </a>
+                <a href="#" class="project-link" id="proj4Live">
+                  <i class="bi bi-box-arrow-up-right"></i> Live
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /projects bento-grid -->
+
+    <!-- ─── TESTIMONIAL + CONTACT ROW ─── -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-label">✦ Testimoni & Kontak</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="bento-grid" id="contact">
+
+      <!-- TESTIMONIAL CARD (2 col) -->
+      <div class="bento-card bento-col-2 reveal" id="testimonialCard">
+        <div class="section-title">
+          <span class="dot"></span> Testimoni
+        </div>
+        <div class="stars">★★★★★</div>
+        <span class="quote-icon">"</span>
+        <p class="testimonial-text">
+          Ilyas bekerja sangat profesional dan menghasilkan website yang jauh melampaui ekspektasi kami.
+          Desainnya modern, performanya cepat, dan komunikasinya sangat responsif selama proses pengerjaan.
+        </p>
+        <div class="testimonial-author">
+          <img
+            src="https://api.dicebear.com/9.x/adventurer/svg?seed=Ahmad&backgroundColor=FF6584"
+            alt="Ahmad Fauzi"
+            class="testimonial-avatar"
+            loading="lazy"
+          />
+          <div>
+            <div class="testimonial-name">Ahmad Fauzi</div>
+            <div class="testimonial-role">CEO, TechVenture Indonesia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT CTA CARD (2 col) -->
+      <div class="bento-card bento-card-accent bento-col-2 noise-texture reveal reveal-delay-1" id="contactCard">
+        <!-- Decorative -->
+        <div class="floating-orb" style="width:180px;height:180px;background:#fff;top:-60px;right:-40px;opacity:0.08;"></div>
+
+        <div style="position:relative;z-index:1;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🚀</div>
+          <h2 class="contact-card-title">Mari Berkolaborasi!</h2>
+          <p class="contact-card-sub">
+            Punya ide proyek yang menarik? Saya siap membantu mewujudkannya
+            menjadi kenyataan. Hubungi saya sekarang!
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mb-1">
+            <a
+              href="mailto:ilyas@example.com"
+              class="btn-contact btn-magnetic"
+              id="btnEmail"
+            >
+              <i class="bi bi-envelope-fill"></i>
+              Kirim Email
+            </a>
+            <a
+              href="#"
+              class="btn-contact btn-magnetic"
+              id="btnWhatsApp"
+            >
+              <i class="bi bi-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/" target="_blank" rel="noopener" class="social-link" id="socialGithub" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-link" id="socialLinkedIn" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-link" id="socialTwitter" title="Twitter / X">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link" id="socialInstagram" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://dribbble.com/" target="_blank" rel="noopener" class="social-link" id="socialDribbble" title="Dribbble">
+              <i class="bi bi-dribbble"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /contact bento-grid -->
+
+  </main>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer class="portfolio-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <div class="footer-text text-center text-md-start">
+          <strong class="font-heading" style="font-size:1rem;">ilyas<span class="accent">.</span>dev</strong><br />
+          <span>Made with <span class="heart">♥</span> and <span class="accent">Bootstrap 5</span></span>
+        </div>
+        <div class="footer-text text-center">
+          © <span id="currentYear"></span> Ilyas. All rights reserved.
+        </div>
+        <div class="d-flex gap-3 footer-text">
+          <a href="#hero" style="color:var(--text-muted);">Home</a>
+          <a href="#about" style="color:var(--text-muted);">About</a>
+          <a href="#projects" style="color:var(--text-muted);">Projects</a>
+          <a href="#contact" style="color:var(--text-muted);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmF6DIo5EkqZx1cnfoNiNcfq3+pr"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+
+  <!-- Fix: sync desktop & mobile theme toggle -->
+  <script>
+    // Sync both theme toggle buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const desktop = document.getElementById('themeToggleDesktop');
+      const mobile  = document.getElementById('themeToggle');
+
+      const syncIcon = () => {
+        const theme = document.documentElement.getAttribute('data-bs-theme');
+        const cls   = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+        if (desktop) desktop.querySelector('i').className = cls;
+        if (mobile)  mobile.querySelector('i').className  = cls;
+      };
+
+      if (desktop) {
+        desktop.addEventListener('click', () => {
+          // Trigger same toggle logic
+          const html    = document.documentElement;
+          const current = html.getAttribute('data-bs-theme');
+          const next    = current === 'dark' ? 'light' : 'dark';
+          html.setAttribute('data-bs-theme', next);
+          localStorage.setItem('portfolio-theme', next);
+          syncIcon();
+        });
+      }
+
+      if (mobile) {
+        mobile.addEventListener('click', syncIcon);
+      }
+
+      // Initial sync
+      syncIcon();
+    });
+  </script>
+
+</body>
+</html>
