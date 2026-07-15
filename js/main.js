@@ -161,19 +161,60 @@
   })();
 
   /* ══════════════════════════════════════════
-     5. NAVBAR SCROLL EFFECT
+     5. SCROLLSPY EFFECT
   ══════════════════════════════════════════ */
-  const NavbarScroll = (() => {
+  const ScrollSpy = (() => {
     const init = () => {
-      const navbar = document.querySelector('.portfolio-navbar');
-      if (!navbar) return;
+      const navLinks = document.querySelectorAll('.portfolio-navbar .nav-link');
+
+      const getAbsoluteOffsetTop = (element) => {
+        let top = 0;
+        let el = element;
+        while (el) {
+          top += el.offsetTop;
+          el = el.offsetParent;
+        }
+        return top;
+      };
 
       const handler = () => {
-        if (window.scrollY > 30) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
+        const aboutSection = document.getElementById('about');
+        const projectsSection = document.getElementById('projects');
+        const contactSection = document.getElementById('contact');
+
+        if (!aboutSection || !projectsSection || !contactSection) return;
+
+        // Navbar offset + buffer
+        const navbar = document.querySelector('.portfolio-navbar');
+        const offset = (navbar ? navbar.offsetHeight : 80) + 60; // 60px additional buffer for trigger zone
+
+        const aboutTop = getAbsoluteOffsetTop(aboutSection) - offset;
+        const projectsTop = getAbsoluteOffsetTop(projectsSection) - offset;
+        const contactTop = getAbsoluteOffsetTop(contactSection) - offset;
+
+        const scrollPos = window.scrollY;
+        let currentSectionId = 'hero'; // default to Home
+
+        if (scrollPos >= contactTop) {
+          currentSectionId = 'contact';
+        } else if (scrollPos >= projectsTop) {
+          currentSectionId = 'projects';
+        } else if (scrollPos >= aboutTop) {
+          currentSectionId = 'about';
         }
+
+        // Fallback for bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+          currentSectionId = 'contact';
+        }
+
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
       };
 
       window.addEventListener('scroll', handler, { passive: true });
@@ -266,7 +307,22 @@
           const target = document.querySelector(link.getAttribute('href'));
           if (!target) return;
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Calculate navbar height dynamically to avoid overlapping target content
+          const navbar = document.querySelector('.portfolio-navbar');
+          const offset = navbar ? navbar.offsetHeight : 80;
+
+          let targetTop = 0;
+          let el = target;
+          while (el) {
+            targetTop += el.offsetTop;
+            el = el.offsetParent;
+          }
+
+          window.scrollTo({
+            top: targetTop - offset - 10,
+            behavior: 'smooth'
+          });
 
           // Close mobile navbar if open
           const collapse = document.querySelector('.navbar-collapse.show');
@@ -328,7 +384,7 @@
     TypingEffect.init();
     ScrollReveal.init();
     LocalClock.init();
-    NavbarScroll.init();
+    ScrollSpy.init();
     DynamicYear.init();
     MagneticButtons.init();
     ContribGrid.init();
